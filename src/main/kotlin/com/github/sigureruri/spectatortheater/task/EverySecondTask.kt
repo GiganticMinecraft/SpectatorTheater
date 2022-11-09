@@ -14,9 +14,9 @@ class EverySecondTask : BukkitRunnable() {
             val startedAt = it.startedAt
             val now = LocalDateTime.now()
 
-            if (now > startedAt.plusSeconds(SpectatorTheater.stConfig.TIME_LIMIT)) {
+            if (now > startedAt.plusSeconds(SpectatorTheater.stConfig.durationTime)) {
                 spectatorManager.end(player)
-                player.sendMessage("${ChatColor.RED}${SpectatorTheater.stConfig.TIME_LIMIT}秒が経過したため、時間制限によりスペクテイターモードを終了しました。")
+                player.sendMessage("${ChatColor.RED}${SpectatorTheater.stConfig.durationTime}秒が経過したため、時間制限によりスペクテイターモードを終了しました。")
             }
         }
     }
