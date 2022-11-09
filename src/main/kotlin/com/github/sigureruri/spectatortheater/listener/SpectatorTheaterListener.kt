@@ -41,18 +41,4 @@ class SpectatorTheaterListener : Listener {
             player.sendMessage("${ChatColor.RED}ゲームを退出したため、スペクテイターモードを終了しました。")
         }
     }
-
-    // TODO: onDisableに行う
-    @EventHandler(priority = EventPriority.MONITOR)
-    fun onDisable(event: PluginDisableEvent) {
-        val plugin = event.plugin
-        if (plugin.name != SpectatorTheater.instance.name) return
-
-        spectatorManager.getAllSpectatorInformation().forEach {
-            val player = it.player
-            spectatorManager.end(player)
-            player.sendMessage("${ChatColor.RED}SpectatorTheaterが無効化されたため、スペクテイターモードを終了しました。")
-        }
-    }
-
 }
