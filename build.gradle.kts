@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.github.sigureruri"
-version = "1.1-SNAPSHOT"
+version = "1.1.1"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
