@@ -3,12 +3,13 @@ package com.github.sigureruri.spectatortheater.config
 import org.bukkit.Bukkit
 import org.bukkit.configuration.file.FileConfiguration
 
+// TODO: cache
 class SpectatorTheaterConfig(config: FileConfiguration) {
 
-    val ENABLED_WORLDS = config.getStringList("enabled-worlds").mapNotNull { Bukkit.getWorld(it) }
+    val enabledWorlds = config.getStringList("enabled-worlds").mapNotNull { it.lowercase() }
 
-    val COOL_TIME = config.getLong("cool-time")
+    val coolTime = config.getLong("cool-time")
 
-    val TIME_LIMIT = config.getLong("time-limit")
+    val durationTime = config.getLong("duration-time")
 
 }

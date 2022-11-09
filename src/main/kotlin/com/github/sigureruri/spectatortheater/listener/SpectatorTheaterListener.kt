@@ -42,6 +42,7 @@ class SpectatorTheaterListener : Listener {
         }
     }
 
+    // TODO: onDisableに行う
     @EventHandler(priority = EventPriority.MONITOR)
     fun onDisable(event: PluginDisableEvent) {
         val plugin = event.plugin

@@ -17,7 +17,7 @@ class STSpectatorManager : SpectatorManager {
 
         if (spectators.contains(uuid))
             return SpectatorManager.StartResult.ALREADY_STARTED
-        if (!SpectatorTheater.stConfig.ENABLED_WORLDS.contains(player.world))
+        if (!SpectatorTheater.stConfig.enabledWorlds.contains(player.world.name.lowercase()))
             return SpectatorManager.StartResult.OUT_OF_ENABLED_WORLDS
         if (isInCoolTime(uuid))
             return SpectatorManager.StartResult.IN_COOL_TIME
@@ -68,7 +68,7 @@ class STSpectatorManager : SpectatorManager {
     private fun isInCoolTime(uuid: UUID): Boolean {
         val endedAt = endHistory[uuid] ?: return false
         val now = LocalDateTime.now()
-        return now < endedAt.plusSeconds(SpectatorTheater.stConfig.COOL_TIME)
+        return now < endedAt.plusSeconds(SpectatorTheater.stConfig.coolTime)
     }
 
 }
