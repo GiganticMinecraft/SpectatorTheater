@@ -9,6 +9,6 @@ class SpectatorTheaterConfig(config: FileConfiguration) {
 
     val coolTime = config.getLong("cool-time")
 
-    val durationTime = config.getLong("time-limit")
+    val durationTime = config.getLong("duration-time")
 
 }
