@@ -6,7 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration
 // TODO: cache
 class SpectatorTheaterConfig(config: FileConfiguration) {
 
-    val enabledWorlds = config.getStringList("enabled-worlds").mapNotNull { Bukkit.getWorld(it) }
+    val enabledWorlds = config.getStringList("enabled-worlds").mapNotNull { it.lowercase() }
 
     val coolTime = config.getLong("cool-time")
 
