@@ -53,7 +53,13 @@ class SpectatorTheaterCommand : TabExecutor {
             SpectatorManager.StartResult.IN_COOL_TIME -> "${ChatColor.RED}クールタイム中であるため、スペクテイターモードを開始できません。"
             SpectatorManager.StartResult.OUT_OF_ENABLED_WORLDS -> "${ChatColor.RED}このワールドではスペクテイターモードが有効でありません。"
             SpectatorManager.StartResult.ALREADY_STARTED -> "${ChatColor.RED}すでにスペクテイターモードを開始しています。"
-            SpectatorManager.StartResult.SUCCESS -> "${ChatColor.GREEN}スペクテイターモードを開始しました。(有効時間: ${ChatColor.GREEN}${ChatColor.BOLD}${SpectatorTheater.stConfig.durationTime}${ChatColor.GREEN}秒)"
+            SpectatorManager.StartResult.SUCCESS -> {
+                val durationTime = SpectatorTheater.stConfig.durationTime
+                val timeLimit =
+                    if (durationTime <= 0L) "無制限" else "${durationTime}${ChatColor.GREEN}秒"
+
+                "${ChatColor.GREEN}スペクテイターモードを開始しました。(有効時間: ${ChatColor.GREEN}${ChatColor.BOLD}${timeLimit})"
+            }
         }
         player.sendMessage(message)
     }

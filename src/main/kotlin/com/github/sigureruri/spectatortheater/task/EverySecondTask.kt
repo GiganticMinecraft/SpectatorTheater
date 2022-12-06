@@ -9,14 +9,16 @@ class EverySecondTask : BukkitRunnable() {
 
     override fun run() {
         val spectatorManager = SpectatorTheater.spectatorManager
+        val durationTime = SpectatorTheater.stConfig.durationTime
         spectatorManager.getAllSpectatorInformation().forEach {
             val player = it.player
             val startedAt = it.startedAt
             val now = LocalDateTime.now()
 
-            if (now > startedAt.plusSeconds(SpectatorTheater.stConfig.durationTime)) {
+            if (durationTime <= 0L) return@forEach
+            else if (now > startedAt.plusSeconds(durationTime)) {
                 spectatorManager.end(player)
-                player.sendMessage("${ChatColor.RED}${SpectatorTheater.stConfig.durationTime}秒が経過したため、時間制限によりスペクテイターモードを終了しました。")
+                player.sendMessage("${ChatColor.RED}${durationTime}秒が経過したため、時間制限によりスペクテイターモードを終了しました。")
             }
         }
     }
