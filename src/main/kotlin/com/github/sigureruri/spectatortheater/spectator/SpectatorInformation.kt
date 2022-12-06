@@ -10,13 +10,11 @@ import java.time.LocalDateTime
  *
  * @property player スペクテイターモードを継続しているプレイヤー
  * @property startedAt スペクテイターモードを開始した時刻
- * @property locationBeforeStart スペクテイターモードを開始する前の位置
  * @property gameModeBeforeStart スペクテイターモードを開始する前のゲームモード
  */
 // startedAtが時間と位置どちらを示すか分かりづらく良い命名ではない
 data class SpectatorInformation(
     val player: Player,
     val startedAt: LocalDateTime,
-    val locationBeforeStart: Location,
     val gameModeBeforeStart: GameMode
 )
