@@ -30,7 +30,6 @@ class STSpectatorManager : SpectatorManager {
         spectators[uuid] = SpectatorInformation(
             player,
             LocalDateTime.now(),
-            player.location.clone(),
             gameModeBeforeChange
         )
 
@@ -47,7 +46,6 @@ class STSpectatorManager : SpectatorManager {
         spectators.remove(uuid)
         endHistory[uuid] = LocalDateTime.now()
 
-        player.teleport(information.locationBeforeStart)
         player.gameMode = information.gameModeBeforeStart
 
         return SpectatorManager.EndResult.SUCCESS
