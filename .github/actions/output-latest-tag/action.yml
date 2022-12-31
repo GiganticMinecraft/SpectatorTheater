@@ -1,0 +1,15 @@
+name: Output latest git tag
+description: Output latest git tag
+outputs:
+  latest-tag:
+    description: latest git tag
+    value: ${{ steps.latest-tag.outputs.new-ver }}
+runs:
+  using: composite
+  steps:
+    - name: Output tag
+      id: latest-tag
+      run: |
+        LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+        echo "new-ver=$LATEST_TAG" >> $GITHUB_OUTPUT
+      shell: bash
