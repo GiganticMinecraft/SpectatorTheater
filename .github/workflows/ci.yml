@@ -14,6 +14,7 @@ jobs:
       - uses: ./.github/actions/output-latest-tag
         id: latest-tag
       - name: Checkout a latest tag
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: git checkout ${{ steps.latest-tag.outputs.latest-tag }}
       - name: Setup Java & Gradle
         uses: ./.github/actions/setup
