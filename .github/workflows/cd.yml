@@ -49,5 +49,5 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag-name: ${{ needs.bump.outputs.new-ver  }}
+          tag_name: ${{ needs.bump.outputs.new-ver  }}
           files: ./*.jar
