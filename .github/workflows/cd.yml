@@ -42,10 +42,12 @@ jobs:
       NEW_VER: ${{ needs.bump.outputs.new-ver  }}
     steps:
       - uses: actions/checkout@v3
-      - name: Fetch and checkout again
+        with:
+          fetch-depth: 0
+      - name: Checkout latest release tag
         run: |
-          git fetch --prune --tags --unshallow
-          git checkout $NEW_VER
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+          git checkout $LATEST_TAG
       - name: Download jar
         uses: actions/download-artifact@v3
         with:
