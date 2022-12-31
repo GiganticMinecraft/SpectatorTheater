@@ -40,8 +40,10 @@ jobs:
       - build
     steps:
       - uses: actions/checkout@v3
-      - name: Fetch again
-        run: git fetch --prune --unshallow
+      - name: Fetch and checkout again
+        run: |
+          git fetch --prune --unshallow
+          git checkout $(git describe --tags --abbrev=0)
       - name: Download jar
         uses: actions/download-artifact@v3
         with:
