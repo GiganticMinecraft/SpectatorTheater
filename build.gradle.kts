@@ -1,10 +1,15 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("com.github.jmongard.git-semver-plugin") version "0.4.3"
     kotlin("jvm") version "1.7.22"
 }
 
+semver {
+    releaseTagNameFormat = "v%s"
+}
+
 group = "com.github.sigureruri"
-version = "2.0.0"
+version = semver.version
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
