@@ -44,7 +44,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Fetch and checkout again
         run: |
-          git fetch --prune --unshallow
+          git fetch --prune --tags --unshallow
           git checkout $NEW_VER
       - name: Download jar
         uses: actions/download-artifact@v3
