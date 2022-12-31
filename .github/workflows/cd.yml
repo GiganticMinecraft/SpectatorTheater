@@ -40,8 +40,6 @@ jobs:
       - build
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Fetch again
         run: git fetch --prune --unshallow
       - name: Download jar
