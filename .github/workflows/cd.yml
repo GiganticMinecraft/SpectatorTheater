@@ -18,7 +18,7 @@ jobs:
       - name: Bump version
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: releaseVersion
+          arguments: releaseVersion --message="bump ver"
       - name: Push changes
         run: git push --follow-tags
       - name: Set output of new ver
