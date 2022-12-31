@@ -42,8 +42,8 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Fetch again
-        run: git fetch --unshallow
+      - name: Checkout HEAD
+        run: git checkout HEAD
       - name: Download jar
         uses: actions/download-artifact@v3
         with:
