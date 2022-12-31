@@ -21,12 +21,6 @@ jobs:
           arguments: releaseVersion --message="bump ver"
       - name: Push changes
         run: git push --follow-tags
-      - name: Set output of new ver
-        id: output-ver
-        run: |
-          VER=$(git describe --tags --abbrev=0)
-          echo "$VER"
-          echo "{new-ver}={$VER}" >> $GITHUB_OUTPUT
   build:
     name: Build
     needs:
@@ -36,18 +30,17 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     needs:
-      - bump
       - build
-    env:
-      NEW_VER: ${{ needs.bump.outputs.new-ver  }}
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Checkout latest release tag
+        id: new-ver
         run: |
           LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
           git checkout $LATEST_TAG
+          echo "new-ver=$LATEST_TAG" >> $GITHUB_OUTPUT
       - name: Download jar
         uses: actions/download-artifact@v3
         with:
@@ -55,5 +48,5 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.NEW_VER }}
+          tag_name: ${{ steps.new-ver.outputs.new-ver }}
           files: ./*.jar
