@@ -38,12 +38,14 @@ jobs:
     needs:
       - bump
       - build
+    env:
+      NEW_VER: ${{ needs.bump.outputs.new-ver  }}
     steps:
       - uses: actions/checkout@v3
       - name: Fetch and checkout again
         run: |
           git fetch --prune --unshallow
-          git checkout $(git describe --tags --abbrev=0)
+          git checkout $NEW_VER
       - name: Download jar
         uses: actions/download-artifact@v3
         with:
@@ -51,5 +53,5 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ needs.bump.outputs.new-ver  }}
+          tag_name: ${{ env.NEW_VER }}
           files: ./*.jar
