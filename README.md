@@ -75,8 +75,7 @@ SpectatorTheaterの機能を使用するためのコマンドです。
 ---
 
 ## 開発環境
-- Spigot 1.12.2
-- Kotlin 1.6.10
+- Spigot 1.16.5
 
 ## プラグインのビルド
 
