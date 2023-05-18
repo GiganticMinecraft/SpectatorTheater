@@ -19,7 +19,8 @@ class SpectatorTheater : JavaPlugin() {
 
         server.pluginManager.registerEvents(SpectatorTheaterListener(), this)
 
-        getCommand("spectatortheater").executor = SpectatorTheaterCommand()
+        // NOTE: avoid Val cannot be reassigned
+        getCommand("spectatortheater")?.setExecutor(SpectatorTheaterCommand())
 
         EverySecondTask().runTaskTimer(this, 20, 20)
     }
