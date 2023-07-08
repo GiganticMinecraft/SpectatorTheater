@@ -1,7 +1,7 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("com.github.jmongard.git-semver-plugin") version "0.4.3"
-    kotlin("jvm") version "1.8.22"
+    kotlin("jvm") version "1.9.0"
 }
 
 semver {
