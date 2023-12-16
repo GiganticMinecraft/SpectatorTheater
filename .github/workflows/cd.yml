@@ -40,7 +40,7 @@ jobs:
       - name: Checkout a latest tag
         run: git checkout ${{ steps.latest-tag.outputs.latest-tag }}
       - name: Download jar
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: jar
       - name: Release
