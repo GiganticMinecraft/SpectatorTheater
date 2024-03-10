@@ -16,7 +16,7 @@ jobs:
       - name: Setup Java & Gradle
         uses: ./.github/actions/setup
       - name: Bump version
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: releaseVersion --message="bump ver"
       - name: Push changes
