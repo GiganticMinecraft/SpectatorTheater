@@ -19,7 +19,7 @@ jobs:
       - name: Setup Java & Gradle
         uses: ./.github/actions/setup
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v3.3.0
+        uses: gradle/gradle-build-action@v3.3.1
         with:
           arguments: shadowJar
       - uses: actions/upload-artifact@v4
