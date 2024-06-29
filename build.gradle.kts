@@ -1,6 +1,6 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("com.github.jmongard.git-semver-plugin") version "0.12.8"
+    id("com.github.jmongard.git-semver-plugin") version "0.12.10"
     kotlin("jvm") version "1.9.24"
 }
 
