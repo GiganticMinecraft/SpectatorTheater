@@ -18,7 +18,7 @@ jobs:
       - name: Bump version
         uses: gradle/gradle-build-action@v3
         with:
-          arguments: releaseVersion --message="bump ver"
+          arguments: releaseVersion --no-commit
       - name: Push changes
         run: git push --follow-tags
   build:
