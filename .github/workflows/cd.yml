@@ -7,18 +7,19 @@ jobs:
   bump:
     name: Bump version
     runs-on: ubuntu-latest
-    outputs:
-      new-ver: ${{ steps.output-ver.outputs.new-ver }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Setup Java & Gradle
-        uses: ./.github/actions/setup
-      - name: Bump version
-        uses: gradle/gradle-build-action@v3
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          arguments: releaseVersion --no-commit
+          distribution: temurin
+          java-version: 17
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Bump version
+        run: ./gradlew releaseVersion --no-commit
       - name: Push changes
         run: git push --follow-tags
   build:
@@ -37,8 +38,6 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/output-latest-tag
         id: latest-tag
-      - name: Checkout a latest tag
-        run: git checkout ${{ steps.latest-tag.outputs.latest-tag }}
       - name: Download jar
         uses: actions/download-artifact@v4
         with:
