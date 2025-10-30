@@ -28,7 +28,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.2.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.2.21")
 }
 
 tasks.getByName<ProcessResources>("processResources") {
