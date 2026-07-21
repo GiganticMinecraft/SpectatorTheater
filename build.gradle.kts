@@ -1,7 +1,7 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("com.github.jmongard.git-semver-plugin") version "0.19.2"
-    kotlin("jvm") version "2.4.0"
+    kotlin("jvm") version "2.4.10"
 }
 
 semver {
@@ -28,7 +28,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.4.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.4.10")
 }
 
 tasks.getByName<ProcessResources>("processResources") {
