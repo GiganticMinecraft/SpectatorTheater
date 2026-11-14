@@ -22,7 +22,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v6
       - name: Build with Gradle
         run: ./gradlew shadowJar
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: jar
           path: build/libs/*.jar
