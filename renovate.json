@@ -1,4 +1,4 @@
 {
   "extends": ["github>GiganticMinecraft/renovate-config"],
-  "includeForks": true
+  "forkProcessing": "enabled"
 }
