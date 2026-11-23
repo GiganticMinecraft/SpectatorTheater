@@ -1,5 +1,8 @@
 {
   "extends": ["github>GiganticMinecraft/renovate-config"],
   "forkProcessing": "enabled",
-  "ignoreDeps": ["io.papermc.paper:paper-api"]
+  "ignoreDeps": [
+    "io.papermc.paper:paper-api",
+    "java-jdk"
+  ]
 }
